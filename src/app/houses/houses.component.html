@@ -1,3 +1,7 @@
-<div class="container" *ngFor="let house of houses">
+<div
+  class="card-deck"
+  *ngFor="let house of houses"
+  [ngStyle]="{ display: 'inline-block', margin: '10px' }"
+>
   <app-house-item [house]="house"></app-house-item>
 </div>
