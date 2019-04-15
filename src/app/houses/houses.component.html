@@ -1,4 +1,3 @@
-<p>
-  houses works!
-</p>
-<router-outlet></router-outlet>
+<div class="container" *ngFor="let house of houses">
+  <app-house-item [house]="house"></app-house-item>
+</div>
