@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group" *ngIf="house">
   <a class="list-group-item list-group-item-action "
     >Name of the House: {{ house.name }}</a
   >
@@ -17,9 +17,10 @@
   <a class="list-group-item list-group-item-action "
     >Seats the House holds: {{ house.seats }}</a
   >
-  <a class="list-group-item list-group-item-action ">
+  <a class="list-group-item list-group-item-action " *ngIf="house">
     The Heir of the House:
     <a
+      *ngIf="house.heirLoaded"
       [routerLink]="['/characters/' + getCharParam(house.heir)]"
       class="btn btn-light"
     >
@@ -29,6 +30,7 @@
   <a class="list-group-item list-group-item-action "
     >The House answers to:
     <a
+      *ngIf="house.overlordLoaded"
       [routerLink]="['/houses/' + getHouseParam(house.overlord)]"
       class="btn btn-light"
       >{{ house.overlordLoaded.name }}
@@ -40,6 +42,7 @@
   <a class="list-group-item list-group-item-action "
     >The House was founded by:
     <a
+      *ngIf="house.founderLoaded"
       [routerLink]="['/characters/' + getCharParam(house.founder)]"
       class="btn btn-light"
       >{{ house.founderLoaded.name }}

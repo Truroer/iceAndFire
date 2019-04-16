@@ -25,7 +25,6 @@ export class HousesComponent implements OnInit {
   nextPage() {
     this.pageNo++;
     this.getHouses();
-    console.log(this.pageNo);
   }
 
   prevPage() {
