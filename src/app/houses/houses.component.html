@@ -1,7 +1,25 @@
 <div
   class="card-deck"
   *ngFor="let house of houses"
-  [ngStyle]="{ display: 'inline-block', margin: '10px' }"
+  [ngStyle]="{ display: 'inline-block', margin: '1em' }"
 >
   <app-house-item [house]="house"></app-house-item>
+</div>
+<div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
+  <button
+    class="btn btn-dark"
+    (click)="prevPage()"
+    [ngStyle]="{ margin: '1em' }"
+    [disabled]="pageNo === 1"
+  >
+    << Previous Page
+  </button>
+  <button
+    class="btn btn-dark"
+    (click)="nextPage()"
+    [ngStyle]="{ margin: '1em' }"
+    [disabled]="pageNo === 37"
+  >
+    Next Page >>
+  </button>
 </div>

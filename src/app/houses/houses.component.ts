@@ -8,16 +8,32 @@ import { Response } from "@angular/http";
   styleUrls: ["./houses.component.css"]
 })
 export class HousesComponent implements OnInit {
+  pageNo = 1;
   houses;
 
   constructor(private iafService: IafServiceService) {}
 
-  ngOnInit() {
-    this.iafService.getHouses().subscribe(
+  getHouses() {
+    this.iafService.getHouses(this.pageNo).subscribe(
       response => {
         this.houses = response;
       },
       error => console.log(error)
     );
+  }
+
+  nextPage() {
+    this.pageNo++;
+    this.getHouses();
+    console.log(this.pageNo);
+  }
+
+  prevPage() {
+    this.pageNo--;
+    this.getHouses();
+  }
+
+  ngOnInit() {
+    this.getHouses();
   }
 }

@@ -1,1 +1,72 @@
-<p>house works! {{ houseId }}</p>
+<div class="list-group">
+  <a class="list-group-item list-group-item-action "
+    >Name of the House: {{ house.name }}</a
+  >
+  <a class="list-group-item list-group-item-action"
+    >Region of the house: {{ house.region }}</a
+  >
+  <a class="list-group-item list-group-item-action"
+    >Coat of arms: {{ house.coatOfArms }}</a
+  >
+  <a class="list-group-item list-group-item-action"
+    >Words of the House: {{ house.words }}</a
+  >
+  <a class="list-group-item list-group-item-action "
+    >Titles the House holds: {{ house.titles }}</a
+  >
+  <a class="list-group-item list-group-item-action "
+    >Seats the House holds: {{ house.seats }}</a
+  >
+  <a class="list-group-item list-group-item-action ">
+    The Heir of the House:
+    <a
+      [routerLink]="['/characters/' + getCharParam(house.heir)]"
+      class="btn btn-light"
+    >
+      {{ house.heirLoaded.name }}
+    </a>
+  </a>
+  <a class="list-group-item list-group-item-action "
+    >The House answers to:
+    <a
+      [routerLink]="['/houses/' + getHouseParam(house.overlord)]"
+      class="btn btn-light"
+      >{{ house.overlordLoaded.name }}
+    </a></a
+  >
+  <a class="list-group-item list-group-item-action "
+    >The House was founded in: {{ house.founded }}</a
+  >
+  <a class="list-group-item list-group-item-action "
+    >The House was founded by:
+    <a
+      [routerLink]="['/characters/' + getCharParam(house.founder)]"
+      class="btn btn-light"
+      >{{ house.founderLoaded.name }}
+    </a></a
+  >
+  <a class="list-group-item list-group-item-action "
+    >The House died out: {{ house.diedOut }}</a
+  >
+  <a class="list-group-item list-group-item-action "
+    >Weapons held by the house: {{ house.ancestralWeapons }}</a
+  >
+  <a class="list-group-item list-group-item-action "
+    >Branches of the House:
+    <a
+      *ngFor="let branch of house.cadetBranchesLoaded"
+      [routerLink]="['/houses/' + getHouseParam(branch.url)]"
+      class="btn btn-light"
+      >{{ branch.name }}</a
+    >
+  </a>
+  <a class="list-group-item list-group-item-action "
+    >Sworn Members:
+    <a
+      *ngFor="let member of house.swornMembersLoaded"
+      [routerLink]="['/characters/' + getCharParam(member.url)]"
+      class="btn btn-light"
+      >{{ member.name }}
+    </a>
+  </a>
+</div>

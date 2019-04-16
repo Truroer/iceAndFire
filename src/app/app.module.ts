@@ -10,6 +10,7 @@ import { HouseComponent } from "./houses/house/house.component";
 
 import { IafServiceService } from "./iaf-service.service";
 import { HouseItemComponent } from "./houses/house-item/house-item.component";
+import { CharachterComponent } from './charachter/charachter.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HouseItemComponent } from "./houses/house-item/house-item.component";
     HeaderComponent,
     HousesComponent,
     HouseComponent,
-    HouseItemComponent
+    HouseItemComponent,
+    CharachterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [IafServiceService],
